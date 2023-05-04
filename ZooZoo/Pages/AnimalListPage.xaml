@@ -1,0 +1,64 @@
+﻿<Page x:Class="ZooZoo.Pages.AnimalListPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ZooZoo.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AnimalListPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel Width="200" Orientation="Vertical">
+           
+            <Button Background="#FFCB0000" x:Name="BEdit"
+                        Content="Edit"
+                        Width="160"
+                        BorderBrush="Black"
+                        Margin="10 10 10 0"
+                        Click="BEdit_Click">
+            </Button>
+
+            <ComboBox Margin="10 40 10 0" x:Name="CountyCb">
+                <ComboBoxItem>Russia</ComboBoxItem>
+                <ComboBoxItem>USA</ComboBoxItem>
+                <ComboBoxItem>Japan</ComboBoxItem>
+                <ComboBoxItem>China</ComboBoxItem>
+            </ComboBox>
+
+            <ComboBox Margin="10 40 10 0" x:Name="HabitatCb">
+                <ComboBoxItem>Mammal</ComboBoxItem>
+                <ComboBoxItem>Omnivorous</ComboBoxItem>
+                <ComboBoxItem>Vegetable</ComboBoxItem>
+            </ComboBox>
+
+            <Button  x:Name="BBack"
+                        Content="Back"
+                        Width="160"
+                        BorderBrush="Black"
+                        Margin="10 10 10 0"
+                        Click="BBack_Click"
+                    Background="#FFCB0000"/>
+
+
+        </StackPanel>
+        <DockPanel Grid.Column="1">
+            <ListView x:Name="LVAnimal">
+                <ListView.View>
+                    <GridView >
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=ID}" Width="90">ID</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Country}" Width="110" >Country</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Habitat}" Width="120" >Habitat</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=Nutrition}" Width="130" >Nutrition</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=LifeTimeInYear}" Width="90" >LifeTimeInYear</GridViewColumn>
+
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </DockPanel>
+    </Grid>
+</Page>
